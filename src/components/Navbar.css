@@ -1,0 +1,73 @@
+.nav {
+  position: fixed; /* Esto hace que el navbar esté fijo en la parte superior */
+  top: 10px; /* Ajusta la distancia del navbar */
+  left: 50%;
+  width: 420px; /* Ancho fijo para que la animación se calcule correctamente */
+  height: 60px; /* Ajusta la altura según lo necesites */
+  background-color: rgba(122, 122, 122, 0.8);
+  border-radius: 0;
+  box-shadow: rgba(55, 53, 53, 0.35) 0px 5px 15px,
+    rgba(114, 108, 110, 0.5) 5px 10px 15px;
+  z-index: 1000; /* Asegura que esté por encima de otros elementos */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  transform: translateX(-50%); /* Centra el navbar */
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+  position: relative;
+  width: 100%; /* Asegura que ocupe todo el ancho del navbar */
+}
+
+.btn {
+  padding: 0.5em 1.5em;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+  font-weight: bold;
+}
+
+.btn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.outline {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  width: 100%; /* Asegura que el SVG ocupe el 100% del ancho del navbar */
+}
+
+.rect {
+  stroke-dasharray: 0 0 10 40 10 40;
+  stroke-dashoffset: 5;
+  stroke: #fff;
+  transition: 0.5s;
+}
+
+.container:hover .rect {
+  stroke-dashoffset: 0;
+  stroke-dasharray: 0;
+}
+
+/* Animación específica para los botones */
+.btn:nth-child(1):hover ~ .outline .rect {
+  stroke-dasharray: 0 2 8 73.3 8 10.7;
+}
+
+.btn:nth-child(2):hover ~ .outline .rect {
+  stroke-dasharray: 0 12.6 9.5 49.3 9.5 31.6;
+}
+
+.btn:nth-child(3):hover ~ .outline .rect {
+  stroke-dasharray: 0 24.5 8.5 27.5 8.5 55.5;
+}
+
+.btn:nth-child(4):hover ~ .outline .rect {
+  stroke-dasharray: 0 34.7 6.9 10.2 6.9 76;
+}
